@@ -1,5 +1,8 @@
 import {Component} from "@angular/core";
 
+// Import needed rxjs
+import './rxjs-extensions';
+
 @Component({
   moduleId: module.id,
   selector: 'my-app',
