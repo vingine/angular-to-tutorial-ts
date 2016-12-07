@@ -1,20 +1,26 @@
-import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }   from '@angular/forms';
+import {NgModule}      from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {FormsModule}   from '@angular/forms';
+import {HttpModule} from "@angular/http";
 
-import { AppComponent } from "./app.component";
-import { HeroesComponent }  from './heroes.component';
-import { HeroDetailComponent } from "./hero-detail.component";
-import { HeroService } from "./hero.service";
-import { DashboardComponent } from "./dashboard.component";
-import { AppRoutingModule } from "./app-routing.module";
+import {AppComponent} from "./app.component";
+import {HeroesComponent}  from './heroes.component';
+import {HeroDetailComponent} from "./hero-detail.component";
+import {HeroService} from "./hero.service";
+import {DashboardComponent} from "./dashboard.component";
+import {AppRoutingModule} from "./app-routing.module";
 
+// Replaces normal http-client backend
+import {InMemoryWebApiModule} from "angular-in-memory-web-api";
+import {InMemoryDataService} from "./in-memory-data-service";
 
 @NgModule({
-  imports:      [
+  imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
   ],
   declarations: [
     AppComponent,
@@ -25,9 +31,10 @@ import { AppRoutingModule } from "./app-routing.module";
   providers: [
     HeroService
   ],
-  bootstrap:    [
+  bootstrap: [
     AppComponent
   ]
 })
 
-export class AppModule { }
+export class AppModule {
+}
