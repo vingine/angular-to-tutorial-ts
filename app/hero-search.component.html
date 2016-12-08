@@ -5,7 +5,7 @@
          (keyup)="search(searchBox.value)" />
   <div>
     <div *ngFor="let hero of heroes | async"
-         (click)="gotoDetail(hero)"
+         (click)="goToDetail(hero)"
          class="search-result" >
       {{hero.name}}
     </div>
